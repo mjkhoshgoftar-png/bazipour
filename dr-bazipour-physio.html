@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کلینیک توانبخشی و فیزیوتراپی دکتر پروانه بازی‌پور</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:        #1a7f74;
+    --teal-light:  #2ab8a8;
+    --teal-dark:   #0f4f48;
+    --gold:        #c9a84c;
+    --gold-light:  #e8c97a;
+    --cream:       #f8f5f0;
+    --white:       #ffffff;
+    --text-dark:   #1c2b2a;
+    --text-mid:    #3d5552;
+    --text-soft:   #6b8885;
+    --border:      #d8e8e6;
+    --shadow:      rgba(26,127,116,0.12);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--teal-light); border-radius: 3px; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; right: 0; left: 0; z-index: 999;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--teal-light);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 2px 20px var(--shadow);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+  .nav-logo-text span:first-child { font-size: 13px; font-weight: 700; color: var(--teal-dark); }
+  .nav-logo-text span:last-child { font-size: 11px; color: var(--text-soft); }
+  .nav-links { display: flex; gap: 8px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-mid);
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { background: var(--teal); color: white; }
+  .nav-btn {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important;
+    color: white !important; font-weight: 600 !important;
+    box-shadow: 0 3px 12px rgba(201,168,76,0.35);
+  }
+  .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(201,168,76,0.4) !important; background: linear-gradient(135deg, var(--gold), var(--gold-light)) !important; }
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .hamburger span { display: block; width: 25px; height: 2px; background: var(--teal-dark); border-radius: 2px; transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #home {
+    min-height: 100vh;
+    padding-top: 70px;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(42,184,168,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 50%),
+      var(--cream);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  #home::before {
+    content: '';
+    position: absolute; top: -100px; left: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(42,184,168,0.1);
+    animation: float 8s ease-in-out infinite;
+  }
+  #home::after {
+    content: '';
+    position: absolute; bottom: -150px; right: -50px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.1);
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.02); }
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; padding: 80px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(42,184,168,0.1);
+    border: 1px solid rgba(42,184,168,0.3);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 13px; color: var(--teal);
+    margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '✦'; font-size: 10px; }
+  h1 {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--teal-dark);
+    margin-bottom: 10px;
+  }
+  h1 span { color: var(--teal-light); }
+  .hero-subtitle {
+    font-size: 18px; font-weight: 500;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  .hero-desc {
+    font-size: 16px; color: var(--text-mid);
+    margin-bottom: 36px; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    color: white; padding: 14px 28px;
+    border: none; border-radius: 12px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 16px var(--shadow);
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow); }
+  .btn-outline {
+    background: transparent;
+    color: var(--teal-dark);
+    padding: 14px 28px; border: 2px solid var(--teal);
+    border-radius: 12px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: var(--teal); color: white; }
+  .hero-stats {
+    display: flex; gap: 30px; margin-top: 40px;
+    padding-top: 30px; border-top: 1px solid var(--border);
+  }
+  .stat { text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 800; color: var(--teal); display: block; }
+  .stat-label { font-size: 12px; color: var(--text-soft); }
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+  }
+  .hero-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px var(--shadow), 0 0 0 1px var(--border);
+    text-align: center;
+    position: relative; z-index: 2;
+    animation: fadeInUp 0.8s ease;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .doctor-avatar {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal-light));
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 60px;
+    box-shadow: 0 8px 30px var(--shadow);
+    border: 4px solid white;
+  }
+  .doctor-name { font-size: 20px; font-weight: 800; color: var(--teal-dark); margin-bottom: 4px; }
+  .doctor-title { font-size: 14px; color: var(--text-soft); margin-bottom: 16px; }
+  .doctor-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .tag {
+    background: rgba(42,184,168,0.1); color: var(--teal);
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+  }
+  .floating-badge {
+    position: absolute;
+    background: white; border-radius: 14px;
+    padding: 10px 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600;
+    animation: floatBadge 4s ease-in-out infinite;
+  }
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .fb1 { top: 10px; right: -30px; color: var(--teal-dark); animation-delay: 0s; }
+  .fb2 { bottom: 20px; left: -20px; color: var(--gold); animation-delay: 2s; }
+  .fb-icon { font-size: 22px; }
+
+  /* ─── SECTIONS ─── */
+  section { scroll-margin-top: 70px; }
+  .section-wrapper { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-label {
+    display: inline-block;
+    background: rgba(42,184,168,0.1);
+    color: var(--teal);
+    padding: 6px 18px; border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    margin-bottom: 16px;
+  }
+  h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 800; color: var(--teal-dark); margin-bottom: 14px; }
+  .section-desc { font-size: 16px; color: var(--text-soft); max-width: 520px; margin: 0 auto; }
+  .alt-bg { background: white; }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-card-main {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+    border-radius: 24px; padding: 50px 40px;
+    color: white; text-align: center;
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+  .about-avatar {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 54px; border: 3px solid rgba(255,255,255,0.3);
+  }
+  .about-card-main h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+  .about-card-main p { font-size: 14px; opacity: 0.8; margin-bottom: 20px; }
+  .about-spec-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .about-spec-tags span {
+    background: rgba(255,255,255,0.15);
+    padding: 5px 14px; border-radius: 100px;
+    font-size: 12px;
+  }
+  .info-mini-card {
+    position: absolute; bottom: -20px; left: -20px;
+    background: white; border-radius: 16px; padding: 16px 20px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+    min-width: 180px;
+  }
+  .info-mini-card .label { font-size: 11px; color: var(--text-soft); }
+  .info-mini-card .value { font-size: 14px; font-weight: 700; color: var(--teal-dark); }
+  .about-content h2 { text-align: right; margin-bottom: 18px; }
+  .about-content p { color: var(--text-mid); margin-bottom: 16px; font-size: 15px; }
+  .edu-list { list-style: none; margin-top: 24px; }
+  .edu-list li {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+  }
+  .edu-list li:last-child { border: none; }
+  .edu-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(42,184,168,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .edu-text strong { display: block; font-weight: 700; color: var(--teal-dark); font-size: 14px; }
+  .edu-text span { font-size: 12px; color: var(--text-soft); }
+
+  /* ─── SERVICES ─── */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: white; border-radius: 20px;
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+    cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    transform: scaleX(0); transform-origin: right;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px var(--shadow); border-color: var(--teal-light); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 38px; margin-bottom: 18px; }
+  .service-card h3 { font-size: 17px; font-weight: 700; color: var(--teal-dark); margin-bottom: 10px; }
+  .service-card p { font-size: 14px; color: var(--text-soft); line-height: 1.7; }
+
+  /* ─── EXERCISES ─── */
+  #exercises { background: linear-gradient(180deg, var(--cream) 0%, rgba(42,184,168,0.05) 100%); }
+  .exercise-tabs {
+    display: flex; gap: 10px; justify-content: center;
+    margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 10px 22px; border-radius: 100px;
+    border: 2px solid var(--border);
+    background: white; color: var(--text-mid);
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--teal); color: white;
+    border-color: var(--teal);
+  }
+  .exercise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .exercise-panel { display: none; }
+  .exercise-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .ex-card {
+    background: white; border-radius: 18px;
+    border: 1px solid var(--border);
+    overflow: hidden; transition: all 0.25s;
+  }
+  .ex-card:hover { box-shadow: 0 10px 30px var(--shadow); transform: translateY(-3px); }
+  .ex-visual {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px;
+    position: relative;
+  }
+  .ex-visual.green { background: linear-gradient(135deg, rgba(26,127,116,0.08), rgba(42,184,168,0.12)); }
+  .ex-visual.gold { background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(232,201,122,0.12)); }
+  .ex-visual.blue { background: linear-gradient(135deg, rgba(42,100,184,0.06), rgba(100,150,220,0.10)); }
+  .ex-info { padding: 18px 20px; }
+  .ex-info h4 { font-size: 15px; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+  .ex-info p { font-size: 13px; color: var(--text-soft); }
+  .ex-meta {
+    display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;
+  }
+  .ex-badge {
+    background: rgba(42,184,168,0.08);
+    color: var(--teal); padding: 3px 10px;
+    border-radius: 100px; font-size: 11px; font-weight: 600;
+  }
+
+  /* ─── ARTICLES ─── */
+  .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .article-card {
+    background: white; border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden; transition: all 0.3s;
+  }
+  .article-card:hover { box-shadow: 0 16px 40px var(--shadow); transform: translateY(-4px); }
+  .article-img {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+    background: linear-gradient(135deg, rgba(26,127,116,0.06), rgba(42,184,168,0.10));
+  }
+  .article-body { padding: 24px; }
+  .article-cat {
+    display: inline-block;
+    background: rgba(42,184,168,0.1); color: var(--teal);
+    padding: 3px 10px; border-radius: 100px;
+    font-size: 11px; font-weight: 600; margin-bottom: 10px;
+  }
+  .article-body h3 { font-size: 16px; font-weight: 700; color: var(--teal-dark); margin-bottom: 8px; line-height: 1.4; }
+  .article-body p { font-size: 13px; color: var(--text-soft); line-height: 1.7; margin-bottom: 16px; }
+  .article-footer { display: flex; justify-content: space-between; align-items: center; }
+  .article-date { font-size: 12px; color: var(--text-soft); }
+  .read-more {
+    font-size: 13px; font-weight: 600; color: var(--teal);
+    text-decoration: none; display: flex; align-items: center; gap: 4px;
+  }
+  .read-more:hover { color: var(--teal-dark); }
+
+  /* ─── LINKS ─── */
+  .links-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .link-card {
+    background: white; border-radius: 16px;
+    padding: 22px 24px; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 18px;
+    text-decoration: none; color: inherit;
+    transition: all 0.25s;
+  }
+  .link-card:hover { border-color: var(--teal); box-shadow: 0 8px 24px var(--shadow); transform: translateX(-4px); }
+  .link-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .link-icon.teal { background: rgba(42,184,168,0.12); }
+  .link-icon.gold { background: rgba(201,168,76,0.12); }
+  .link-icon.blue { background: rgba(66,135,245,0.1); }
+  .link-icon.green { background: rgba(52,168,83,0.1); }
+  .link-text strong { display: block; font-weight: 700; color: var(--teal-dark); font-size: 15px; margin-bottom: 4px; }
+  .link-text span { font-size: 13px; color: var(--text-soft); }
+  .link-arrow { margin-right: auto; color: var(--text-soft); font-size: 20px; }
+
+  /* ─── CONTACT ─── */
+  #contact { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%); }
+  #contact .section-header .section-label { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); }
+  #contact h2 { color: white; }
+  #contact .section-desc { color: rgba(255,255,255,0.7); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 18px; }
+  .contact-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px; padding: 20px 24px;
+    display: flex; align-items: center; gap: 16px;
+    backdrop-filter: blur(8px);
+  }
+  .contact-item-icon { font-size: 28px; }
+  .contact-item strong { display: block; color: white; font-size: 14px; margin-bottom: 2px; }
+  .contact-item span { color: rgba(255,255,255,0.7); font-size: 13px; }
+  .contact-form {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; padding: 32px;
+    backdrop-filter: blur(8px);
+  }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500; margin-bottom: 8px; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px 16px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px; color: white;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 14px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+  .form-group select option { background: var(--teal-dark); color: white; }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold-light); }
+  .form-group textarea { resize: none; height: 110px; }
+  .form-submit {
+    width: 100%; padding: 14px;
+    background: var(--gold);
+    color: white; font-family: 'Vazirmatn', sans-serif;
+    font-size: 15px; font-weight: 700;
+    border: none; border-radius: 12px; cursor: pointer;
+    transition: all 0.25s;
+  }
+  .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--teal-dark); color: rgba(255,255,255,0.6);
+    text-align: center; padding: 28px 40px;
+    font-size: 13px;
+  }
+  footer strong { color: white; }
+
+  /* ─── MOBILE MENU ─── */
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 70px; right: 0; left: 0; z-index: 998;
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    flex-direction: column; gap: 8px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none; color: var(--text-dark);
+    padding: 12px 16px; border-radius: 10px;
+    font-weight: 500;
+  }
+  .mobile-menu a:hover { background: var(--teal); color: white; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .services-grid, .exercise-panel.active, .articles-grid { grid-template-columns: 1fr 1fr; }
+    .links-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .about-content h2 { text-align: center; }
+    .floating-badge { display: none; }
+  }
+  @media (max-width: 600px) {
+    .services-grid, .exercise-panel.active, .articles-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 16px; }
+    .section-wrapper { padding: 50px 20px; }
+    nav { padding: 0 20px; }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">🏥</div>
+    <div class="nav-logo-text">
+      <span>کلینیک دکتر بازی‌پور</span>
+      <span>فیزیوتراپی و توانبخشی</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#home">خانه</a>
+    <a href="#about">معرفی</a>
+    <a href="#services">خدمات</a>
+    <a href="#exercises">تمرین درمانی</a>
+    <a href="#articles">مقالات</a>
+    <a href="#links">لینک‌های مفید</a>
+    <a href="#contact" class="nav-btn">تماس با ما</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">خانه</a>
+  <a href="#about" onclick="closeMenu()">معرفی</a>
+  <a href="#services" onclick="closeMenu()">خدمات</a>
+  <a href="#exercises" onclick="closeMenu()">تمرین درمانی</a>
+  <a href="#articles" onclick="closeMenu()">مقالات</a>
+  <a href="#links" onclick="closeMenu()">لینک‌های مفید</a>
+  <a href="#contact" onclick="closeMenu()">تماس با ما</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">کلینیک تخصصی توانبخشی شیراز</div>
+      <h1>فیزیوتراپی و<br>توانبخشی<br><span>تخصصی</span></h1>
+      <div class="hero-subtitle">دکتر پروانه بازی‌پور — فیزیوتراپیست</div>
+      <p class="hero-desc">
+        با بهره‌گیری از جدیدترین روش‌های درمانی و تجهیزات پیشرفته، مسیر بازگشت به سلامت و کیفیت زندگی بهتر را برای شما هموار می‌کنیم.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">📅 رزرو نوبت</a>
+        <a href="#services" class="btn-outline">🔍 مشاهده خدمات</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">+۱۰</span>
+          <span class="stat-label">سال تجربه</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+۵۰۰۰</span>
+          <span class="stat-label">بیمار درمان‌شده</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">+۲۰</span>
+          <span class="stat-label">نوع خدمت</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="doctor-avatar">👩‍⚕️</div>
+        <div class="doctor-name">دکتر پروانه بازی‌پور</div>
+        <div class="doctor-title">متخصص فیزیوتراپی | شیراز</div>
+        <div class="doctor-tags">
+          <span class="tag">توانبخشی</span>
+          <span class="tag">فیزیوتراپی ورزشی</span>
+          <span class="tag">درد مزمن</span>
+          <span class="tag">ستون فقرات</span>
+        </div>
+      </div>
+      <div class="floating-badge fb1">
+        <span class="fb-icon">⭐</span>
+        <div>
+          <strong>۴.۹ / ۵</strong><br>
+          <small style="color:var(--text-soft);font-size:11px">رضایت بیماران</small>
+        </div>
+      </div>
+      <div class="floating-badge fb2">
+        <span class="fb-icon">🏆</span>
+        <div>
+          <strong>عضو نظام پزشکی</strong><br>
+          <small style="color:var(--text-soft);font-size:11px">ایران</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt-bg">
+  <div class="section-wrapper">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-card-main">
+          <div class="about-avatar">👩‍⚕️</div>
+          <h3>دکتر پروانه بازی‌پور</h3>
+          <p>فیزیوتراپیست و متخصص توانبخشی — شیراز، فارس</p>
+          <div class="about-spec-tags">
+            <span>فیزیوتراپی عصبی</span>
+            <span>آسیب‌های ورزشی</span>
+            <span>دیسک کمر و گردن</span>
+            <span>بازتوانی پس از جراحی</span>
+          </div>
+        </div>
+        <div class="info-mini-card">
+          <div class="label">🏥 مکان کلینیک</div>
+          <div class="value">شیراز، استان فارس</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="section-label">درباره ما</div>
+        <h2>معرفی دکتر<br>پروانه بازی‌پور</h2>
+        <p>
+          دکتر پروانه بازی‌پور، فیزیوتراپیست و متخصص توانبخشی با سال‌ها تجربه کلینیکی در حوزه فیزیوتراپی و درمان اختلالات اسکلتی-عضلانی فعالیت می‌کنند.
+        </p>
+        <p>
+          ایشان با رویکردی جامع و بیمارمحور، با استفاده از روش‌های نوین درمان دستی، الکتروتراپی، لیزر درمانی و تمرین‌درمانی تخصصی، به بهبود کیفیت زندگی بیماران کمک می‌کنند.
+        </p>
+        <ul class="edu-list">
+          <li>
+            <div class="edu-icon">🎓</div>
+            <div class="edu-text">
+              <strong>دکترای فیزیوتراپی</strong>
+              <span>دانشگاه علوم پزشکی ایران</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">🏥</div>
+            <div class="edu-text">
+              <strong>عضو نظام پزشکی جمهوری اسلامی ایران</strong>
+              <span>دارای پروانه معتبر فعالیت</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">🏆</div>
+            <div class="edu-text">
+              <strong>تخصص در فیزیوتراپی ورزشی</strong>
+              <span>درمان آسیب‌های ورزشی و بازتوانی</span>
+            </div>
+          </li>
+          <li>
+            <div class="edu-icon">📚</div>
+            <div class="edu-text">
+              <strong>فعالیت در شیراز</strong>
+              <span>ارائه خدمات تخصصی به بیماران استان فارس</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-label">خدمات ما</div>
+      <h2>خدمات تخصصی کلینیک</h2>
+      <p class="section-desc">طیف گسترده‌ای از خدمات فیزیوتراپی و توانبخشی با بهره‌گیری از تجهیزات پیشرفته</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <h3>الکتروتراپی</h3>
+        <p>درمان با جریان‌های الکتریکی برای کاهش درد، تقویت عضلات و تسریع روند بهبود بافت‌های آسیب‌دیده.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔴</div>
+        <h3>لیزر درمانی</h3>
+        <p>استفاده از لیزر کم‌توان و پرتوان برای کاهش التهاب، تسکین درد و ترمیم بافت‌های آسیب‌دیده.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💪</div>
+        <h3>تمرین درمانی</h3>
+        <p>طراحی برنامه‌های تخصصی ورزشی برای بازتوانی، تقویت عضلات و پیشگیری از آسیب‌های مجدد.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🙌</div>
+        <h3>درمان دستی</h3>
+        <p>تکنیک‌های مانیپولاسیون و موبیلیزاسیون مفاصل برای بازیابی دامنه حرکتی و کاهش درد.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌊</div>
+        <h3>شاک‌ویو تراپی</h3>
+        <p>درمان خار پاشنه، تاندونیت و کلسیفیکاسیون با امواج ضربه‌ای پیشرفته.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🧲</div>
+        <h3>مگنت‌تراپی</h3>
+        <p>بهره‌گیری از میدان مغناطیسی برای کاهش درد، التهاب و تسریع ترمیم استخوان‌ها.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏃</div>
+        <h3>فیزیوتراپی ورزشی</h3>
+        <p>درمان و بازتوانی آسیب‌های ورزشی برای بازگشت سریع‌تر ورزشکاران به میادین ورزشی.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🧠</div>
+        <h3>فیزیوتراپی عصبی</h3>
+        <p>توانبخشی بیماران مبتلا به سکته مغزی، MS، و سایر اختلالات عصبی برای بهبود حرکت و استقلال.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌿</div>
+        <h3>طب سوزنی</h3>
+        <p>استفاده از روش‌های سنتی و نوین طب سوزنی در کنار فیزیوتراپی برای کاهش درد مزمن.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-label">تمرین درمانی</div>
+      <h2>برنامه‌های تمرینی تخصصی</h2>
+      <p class="section-desc">تمرینات درمانی هدفمند برای بخش‌های مختلف بدن، طراحی‌شده توسط متخصص</p>
+    </div>
+    <div class="exercise-tabs">
+      <button class="tab-btn active" onclick="showTab('spine')">ستون فقرات</button>
+      <button class="tab-btn" onclick="showTab('knee')">زانو و اندام تحتانی</button>
+      <button class="tab-btn" onclick="showTab('shoulder')">شانه و اندام فوقانی</button>
+    </div>
+
+    <!-- Spine -->
+    <div class="exercise-panel active" id="spine">
+      <div class="ex-card">
+        <div class="ex-visual green">🧘</div>
+        <div class="ex-info">
+          <h4>کشش ستون فقرات</h4>
+          <p>تمرین کشش ملایم برای تسکین فشار دیسک‌های کمری و کاهش درد.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۱۰ تکرار</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual gold">🏋️</div>
+        <div class="ex-info">
+          <h4>تقویت عضلات مرکزی (Core)</h4>
+          <p>تمرینات تثبیت ستون فقرات برای پیشگیری از کمردرد مزمن.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۱۵ تکرار</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روز یک‌در‌میان</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual blue">🔄</div>
+        <div class="ex-info">
+          <h4>چرخش کمری</h4>
+          <p>تمرینات افزایش دامنه حرکتی کمر برای انعطاف‌پذیری بیشتر.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۸ تکرار</span>
+            <span class="ex-badge">۲ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Knee -->
+    <div class="exercise-panel" id="knee">
+      <div class="ex-card">
+        <div class="ex-visual green">🦵</div>
+        <div class="ex-info">
+          <h4>تقویت چهارسر ران</h4>
+          <p>تمرینات تقویتی برای عضلات جلوی ران جهت حمایت از مفصل زانو.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۱۵ تکرار</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روز یک‌در‌میان</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual gold">⚖️</div>
+        <div class="ex-info">
+          <h4>تمرین تعادلی تک‌پا</h4>
+          <p>بهبود تعادل و پروپریوسپشن برای پیشگیری از آسیب‌های مجدد زانو.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۳۰ ثانیه</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual blue">🏊</div>
+        <div class="ex-info">
+          <h4>کشش همسترینگ</h4>
+          <p>کشش عضلات پشت ران برای کاهش فشار روی مفصل زانو.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۳۰ ثانیه</span>
+            <span class="ex-badge">۲ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shoulder -->
+    <div class="exercise-panel" id="shoulder">
+      <div class="ex-card">
+        <div class="ex-visual green">💪</div>
+        <div class="ex-info">
+          <h4>تقویت عضلات روتاتور کاف</h4>
+          <p>تمرینات تخصصی برای پایداری مفصل شانه و پیشگیری از آسیب.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۱۲ تکرار</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روز یک‌در‌میان</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual gold">🔁</div>
+        <div class="ex-info">
+          <h4>حرکات پاندولی</h4>
+          <p>تمرین کدمن برای افزایش دامنه حرکتی شانه در دوره بهبودی.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۲ دقیقه</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-visual blue">🧗</div>
+        <div class="ex-info">
+          <h4>کشش کپسول خلفی</h4>
+          <p>کاهش سفتی کپسول شانه و بهبود دامنه چرخش داخلی.</p>
+          <div class="ex-meta">
+            <span class="ex-badge">۳۰ ثانیه</span>
+            <span class="ex-badge">۳ ست</span>
+            <span class="ex-badge">روزانه</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="alt-bg">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-label">دانش درمانی</div>
+      <h2>آخرین مقالات</h2>
+      <p class="section-desc">مطالب آموزشی و اطلاعات تخصصی در حوزه فیزیوتراپی و توانبخشی</p>
+    </div>
+    <div class="articles-grid">
+      <div class="article-card reveal">
+        <div class="article-img">🦴</div>
+        <div class="article-body">
+          <span class="article-cat">دیسک و ستون فقرات</span>
+          <h3>دیسک کمر چیست و چه زمانی به فیزیوتراپی نیاز داریم؟</h3>
+          <p>آشنایی با انواع آسیب‌های دیسک بین‌مهره‌ای و روش‌های درمان غیرجراحی با فیزیوتراپی تخصصی.</p>
+          <div class="article-footer">
+            <span class="article-date">اردیبهشت ۱۴۰۴</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img">🏃</div>
+        <div class="article-body">
+          <span class="article-cat">فیزیوتراپی ورزشی</span>
+          <h3>بازتوانی پس از پارگی رباط صلیبی قدامی (ACL)</h3>
+          <p>مراحل توانبخشی ACL از جراحی تا بازگشت به میدان ورزشی؛ آنچه باید بدانید.</p>
+          <div class="article-footer">
+            <span class="article-date">فروردین ۱۴۰۴</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img">🧠</div>
+        <div class="article-body">
+          <span class="article-cat">توانبخشی عصبی</span>
+          <h3>نقش فیزیوتراپی در بهبود بیماران سکته مغزی</h3>
+          <p>چگونه فیزیوتراپی عصبی می‌تواند به بازیابی حرکت و استقلال پس از سکته مغزی کمک کند.</p>
+          <div class="article-footer">
+            <span class="article-date">اسفند ۱۴۰۳</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img">🦶</div>
+        <div class="article-body">
+          <span class="article-cat">درد مزمن</span>
+          <h3>درمان خار پاشنه بدون جراحی</h3>
+          <p>روش‌های نوین فیزیوتراپی از جمله شاک‌ویو تراپی برای درمان خار پاشنه و فاشئیت کف‌پایی.</p>
+          <div class="article-footer">
+            <span class="article-date">بهمن ۱۴۰۳</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img">💼</div>
+        <div class="article-body">
+          <span class="article-cat">پیشگیری</span>
+          <h3>ارگونومی در محیط کار؛ پیشگیری از آسیب‌های شغلی</h3>
+          <p>راهنمای جامع اصول ارگونومی برای کاهش درد گردن، کمر و دست در کار با کامپیوتر.</p>
+          <div class="article-footer">
+            <span class="article-date">دی ۱۴۰۳</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+      <div class="article-card reveal">
+        <div class="article-img">🌡️</div>
+        <div class="article-body">
+          <span class="article-cat">روش‌های درمانی</span>
+          <h3>گرما یا سرما؟ کدام یک برای دردهای عضلانی بهتر است؟</h3>
+          <p>راهنمای تصمیم‌گیری بین کمپرس سرد و گرم برای انواع آسیب‌های عضلانی و مفصلی.</p>
+          <div class="article-footer">
+            <span class="article-date">آذر ۱۴۰۳</span>
+            <a href="#" class="read-more">ادامه مطلب ←</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section id="links">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-label">منابع مفید</div>
+      <h2>لینک‌های مفید</h2>
+      <p class="section-desc">سایت‌ها و منابع معتبر در حوزه سلامت، فیزیوتراپی و توانبخشی</p>
+    </div>
+    <div class="links-grid reveal">
+      <a href="https://irimc.org" target="_blank" class="link-card">
+        <div class="link-icon teal">🏛️</div>
+        <div class="link-text">
+          <strong>سازمان نظام پزشکی ایران</strong>
+          <span>اطلاعات پزشکان مجاز و بررسی پروانه فعالیت</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+      <a href="https://www.who.int/health-topics/rehabilitation" target="_blank" class="link-card">
+        <div class="link-icon gold">🌍</div>
+        <div class="link-text">
+          <strong>سازمان بهداشت جهانی — توانبخشی</strong>
+          <span>راهنماهای جهانی در حوزه توانبخشی و فیزیوتراپی</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+      <a href="https://www.wcpt.org" target="_blank" class="link-card">
+        <div class="link-icon blue">🌐</div>
+        <div class="link-text">
+          <strong>فدراسیون جهانی فیزیوتراپی (WCPT)</strong>
+          <span>آخرین استانداردها و دستورالعمل‌های بین‌المللی</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+      <a href="https://www.physio-pedia.com" target="_blank" class="link-card">
+        <div class="link-icon green">📖</div>
+        <div class="link-text">
+          <strong>Physiopedia</strong>
+          <span>دانشنامه تخصصی فیزیوتراپی به زبان ساده</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed" target="_blank" class="link-card">
+        <div class="link-icon teal">🔬</div>
+        <div class="link-text">
+          <strong>PubMed — مقالات علمی پزشکی</strong>
+          <span>دسترسی به تحقیقات و مقالات علمی معتبر</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+      <a href="https://www.apta.org" target="_blank" class="link-card">
+        <div class="link-icon gold">🏥</div>
+        <div class="link-text">
+          <strong>انجمن فیزیوتراپی آمریکا (APTA)</strong>
+          <span>منابع آموزشی و دستورالعمل‌های درمانی</span>
+        </div>
+        <div class="link-arrow">←</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrapper">
+    <div class="section-header reveal">
+      <div class="section-label">ارتباط با ما</div>
+      <h2>تماس و رزرو نوبت</h2>
+      <p class="section-desc">برای رزرو نوبت یا اطلاعات بیشتر با ما در تماس باشید</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <strong>آدرس کلینیک</strong>
+            <span>شیراز، استان فارس — برای آدرس دقیق تماس بگیرید</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <strong>تلفن تماس</strong>
+            <span>برای دریافت شماره تماس، پیام ارسال کنید</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <strong>ساعات کاری</strong>
+            <span>شنبه تا چهارشنبه: ۸ صبح تا ۷ شب</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📱</div>
+          <div>
+            <strong>اینستاگرام</strong>
+            <span>دنبال کنید برای آخرین مطالب آموزشی</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label>نام و نام خانوادگی</label>
+          <input type="text" placeholder="مثلاً: علی احمدی">
+        </div>
+        <div class="form-group">
+          <label>شماره تماس</label>
+          <input type="tel" placeholder="۰۹۱۲...">
+        </div>
+        <div class="form-group">
+          <label>موضوع مراجعه</label>
+          <select>
+            <option>انتخاب کنید...</option>
+            <option>کمردرد / دیسک</option>
+            <option>گردن‌درد</option>
+            <option>آسیب ورزشی</option>
+            <option>بازتوانی پس از جراحی</option>
+            <option>درد مفاصل</option>
+            <option>سکته مغزی / توانبخشی عصبی</option>
+            <option>سایر</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>توضیحات (اختیاری)</label>
+          <textarea placeholder="شرح مختصری از مشکل خود بنویسید..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">📅 ارسال درخواست نوبت</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© ۱۴۰۴ — کلینیک توانبخشی و فیزیوتراپی <strong>دکتر پروانه بازی‌پور</strong> — شیراز، فارس</p>
+  <p style="margin-top:8px;font-size:12px">طراحی و توسعه با ❤️ — تمامی حقوق محفوظ است</p>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Exercise tabs
+  function showTab(id) {
+    document.querySelectorAll('.exercise-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm() {
+    alert('درخواست شما با موفقیت ارسال شد!\nبه زودی با شما تماس خواهیم گرفت. 🙏');
+  }
+</script>
+</body>
+</html>
