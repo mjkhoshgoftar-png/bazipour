@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کلینیک آنلاین دکتر پروانه بازی‌پور | کاردرمانی و حرکات اصلاحی</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#1a7f74;--teal-l:#2ab8a8;--teal-d:#0f4f48;
+  --gold:#c9a84c;--gold-l:#e8c97a;
+  --cream:#f5f7f6;--white:#fff;
+  --txt:#1c2b2a;--txt-m:#3d5552;--txt-s:#6b8885;
+  --bdr:#d8e8e6;--shd:rgba(26,127,116,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',sans-serif;background:var(--cream);color:var(--txt);line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--cream)}::-webkit-scrollbar-thumb{background:var(--teal-l);border-radius:3px}
+
+/* NAV */
+nav{position:fixed;top:0;right:0;left:0;z-index:999;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);border-bottom:2px solid var(--teal-l);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px;box-shadow:0 2px 20px var(--shd)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:#007A53;border-radius:12px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon img{width:100%;height:100%;object-fit:contain}
+.nav-logo-txt{display:flex;flex-direction:column;line-height:1.2}
+.nav-logo-txt span:first-child{font-size:13px;font-weight:700;color:var(--teal-d)}
+.nav-logo-txt span:last-child{font-size:11px;color:var(--txt-s)}
+.nav-links{display:flex;gap:5px;align-items:center}
+.nav-links a{text-decoration:none;font-size:13px;font-weight:500;color:var(--txt-m);padding:7px 11px;border-radius:8px;transition:.2s}
+.nav-links a:hover{background:var(--teal);color:#fff}
+.nav-btn{background:linear-gradient(135deg,var(--teal),var(--teal-l))!important;color:#fff!important;font-weight:600!important;box-shadow:0 3px 12px var(--shd)}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px}
+.hamburger span{display:block;width:25px;height:2px;background:var(--teal-d);border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:70px;right:0;left:0;z-index:998;background:#fff;border-bottom:1px solid var(--bdr);padding:20px;flex-direction:column;gap:8px;box-shadow:0 8px 24px var(--shd)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{text-decoration:none;color:var(--txt);padding:12px 16px;border-radius:10px;font-weight:500}
+.mobile-menu a:hover{background:var(--teal);color:#fff}
+
+/* HERO */
+#home{min-height:100vh;padding-top:70px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background-image:url('background.jpeg');background-size:cover;background-position:center;background-attachment:fixed;z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,40,36,.75) 0%,rgba(15,79,72,.65) 50%,rgba(10,40,36,.55) 100%)}
+.hero-in{max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 16px;border-radius:100px;font-size:13px;color:rgba(255,255,255,.9);margin-bottom:20px;backdrop-filter:blur(8px)}
+h1{font-size:clamp(28px,3.8vw,48px);font-weight:800;line-height:1.25;color:#fff;margin-bottom:10px}
+h1 span{color:var(--gold-l)}
+.hero-sub{font-size:16px;font-weight:500;color:rgba(255,255,255,.85);margin-bottom:16px}
+.hero-desc{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:32px;max-width:470px;line-height:1.8}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#fff;padding:13px 26px;border:none;border-radius:12px;font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 16px rgba(201,168,76,.4);transition:.25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.5)}
+.btn-outline{background:rgba(255,255,255,.12);color:#fff;padding:13px 26px;border:2px solid rgba(255,255,255,.4);border-radius:12px;font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.25s;backdrop-filter:blur(8px)}
+.btn-outline:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}
+.hero-stats{display:flex;gap:24px;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,.2)}
+.stat{text-align:center}
+.stat-num{font-size:26px;font-weight:800;color:var(--gold-l);display:block}
+.stat-label{font-size:11px;color:rgba(255,255,255,.7)}
+.hero-visual{display:flex;justify-content:center;align-items:center}
+.hero-card{background:rgba(255,255,255,.1);border-radius:24px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,.2);animation:fadeUp .8s ease;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero-services{display:flex;flex-direction:column;gap:14px}
+.hs-item{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.1);border-radius:14px;padding:14px 18px;border:1px solid rgba(255,255,255,.15)}
+.hs-icon{font-size:26px;flex-shrink:0}
+.hs-text strong{display:block;color:#fff;font-size:14px;font-weight:700;margin-bottom:2px}
+.hs-text span{font-size:12px;color:rgba(255,255,255,.7)}
+.tag{background:rgba(42,184,168,.1);color:var(--teal);padding:4px 12px;border-radius:100px;font-size:11px;font-weight:500}
+
+/* SECTIONS */
+section{scroll-margin-top:70px}
+.sw{max-width:1200px;margin:0 auto;padding:80px 40px}
+.sh{text-align:center;margin-bottom:55px}
+.sl{display:inline-block;background:rgba(42,184,168,.1);color:var(--teal);padding:6px 18px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:14px}
+h2{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--teal-d);margin-bottom:12px}
+.sd{font-size:15px;color:var(--txt-s);max-width:500px;margin:0 auto}
+.alt-bg{background:#fff}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start}
+.about-photo-wrap{position:relative}
+.about-photo{width:100%;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px var(--shd);aspect-ratio:3/4;background:linear-gradient(135deg,var(--teal-d),var(--teal))}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:80px}
+.about-badge-wrap{position:absolute;bottom:-16px;right:-16px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 10px 32px rgba(0,0,0,.1);min-width:160px}
+.about-badge-wrap .lb{font-size:11px;color:var(--txt-s)}
+.about-badge-wrap .vl{font-size:13px;font-weight:700;color:var(--teal-d)}
+.about-content h2{text-align:right;margin-bottom:8px}
+.about-content .hero-sub-text{font-size:14px;color:var(--teal);font-weight:600;margin-bottom:16px}
+.about-bio{background:var(--cream);border-radius:16px;padding:22px 24px;margin-bottom:20px;border-right:4px solid var(--teal-l)}
+.about-bio p{font-size:14px;color:var(--txt-m);line-height:1.9;margin-bottom:10px}
+.about-bio p:last-child{margin-bottom:0}
+.edu-list{list-style:none;margin-top:6px}
+.edu-list li{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--bdr)}
+.edu-list li:last-child{border:none}
+.edu-ic{width:36px;height:36px;border-radius:10px;background:rgba(42,184,168,.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.edu-txt strong{display:block;font-weight:700;color:var(--teal-d);font-size:13px}
+.edu-txt span{font-size:12px;color:var(--txt-s)}
+
+/* SERVICES */
+.svc-tabs{display:flex;gap:10px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.svc-tab{padding:10px 24px;border-radius:100px;border:2px solid var(--bdr);background:#fff;color:var(--txt-m);font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+.svc-tab.active,.svc-tab:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.svc-panel{display:none}
+.svc-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border-radius:20px;padding:28px 24px;border:1px solid var(--bdr);transition:.3s;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;top:0;right:0;width:100%;height:4px;background:linear-gradient(90deg,var(--teal),var(--teal-l));transform:scaleX(0);transform-origin:right;transition:.3s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 14px 38px var(--shd);border-color:var(--teal-l)}
+.svc:hover::before{transform:scaleX(1)}
+.svc-ic{font-size:34px;margin-bottom:14px}
+.svc h3{font-size:15px;font-weight:700;color:var(--teal-d);margin-bottom:8px}
+.svc p{font-size:13px;color:var(--txt-s);line-height:1.7}
+
+/* DISEASES */
+#diseases{background:linear-gradient(180deg,var(--cream),rgba(42,184,168,.04))}
+.dis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.dis-card{background:#fff;border-radius:20px;padding:26px 24px;border:1px solid var(--bdr);transition:.3s;cursor:default}
+.dis-card:hover{box-shadow:0 12px 32px var(--shd);transform:translateY(-4px);border-color:var(--teal-l)}
+.dis-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dis-ic{width:48px;height:48px;border-radius:14px;background:rgba(42,184,168,.1);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.dis-header h3{font-size:16px;font-weight:700;color:var(--teal-d)}
+.dis-card p{font-size:13px;color:var(--txt-s);line-height:1.7;margin-bottom:12px}
+.dis-tags{display:flex;flex-wrap:wrap;gap:7px}
+.dis-tag{background:rgba(42,184,168,.08);color:var(--teal);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:500}
+
+/* ARTICLES */
+.art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.art-card{background:#fff;border-radius:20px;border:1px solid var(--bdr);overflow:hidden;transition:.3s}
+.art-card:hover{box-shadow:0 14px 38px var(--shd);transform:translateY(-4px)}
+.art-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden}
+.art-img.green{background:linear-gradient(135deg,rgba(26,127,116,.08),rgba(42,184,168,.14))}
+.art-img.gold{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(232,201,122,.14))}
+.art-ig-badge{position:absolute;top:10px;left:10px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;display:flex;align-items:center;gap:4px}
+.art-body{padding:22px}
+.art-cat{display:inline-block;background:rgba(42,184,168,.1);color:var(--teal);padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600;margin-bottom:9px}
+.art-body h3{font-size:16px;font-weight:700;color:var(--teal-d);margin-bottom:8px;line-height:1.4}
+.art-body p{font-size:13px;color:var(--txt-s);line-height:1.7;margin-bottom:16px}
+.art-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.art-date{font-size:12px;color:var(--txt-s)}
+.art-ig-link{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;text-decoration:none;transition:.2s}
+.art-ig-link:hover{transform:scale(1.05);box-shadow:0 4px 14px rgba(253,29,29,.3)}
+
+/* ARTICLE MODAL */
+.art-modal-overlay{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:2000;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px}
+.art-modal-overlay.open{display:flex}
+.art-modal{background:#fff;border-radius:24px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;animation:modalIn .35s ease}
+@keyframes modalIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.art-modal-header{padding:30px 32px 22px;border-bottom:1px solid var(--bdr);position:relative}
+.art-modal-header .close-btn{position:absolute;top:18px;left:18px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.08);border:none;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.art-modal-header .close-btn:hover{background:rgba(0,0,0,.15)}
+.art-modal-header h3{font-size:20px;font-weight:800;color:var(--teal-d);line-height:1.4;margin:10px 0 8px}
+.art-modal-header .art-date{font-size:12px;color:var(--txt-s);margin-bottom:12px}
+.art-modal-header .ig-link-btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;padding:9px 18px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:600;margin-top:4px}
+.art-modal-content{padding:28px 32px;font-size:15px;color:var(--txt-m);line-height:2}
+.art-modal-content h4{font-size:16px;font-weight:700;color:var(--teal-d);margin:20px 0 10px}
+.art-modal-content p{margin-bottom:14px}
+.art-modal-content ul,.art-modal-content ol{padding-right:22px;margin-bottom:14px}
+.art-modal-content li{margin-bottom:7px}
+.art-modal-content .highlight{background:rgba(42,184,168,.08);border-right:4px solid var(--teal);padding:14px 18px;border-radius:0 10px 10px 0;margin:16px 0;font-size:14px;color:var(--teal-d)}
+.art-modal-content table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.art-modal-content th{background:var(--teal);color:#fff;padding:10px 14px;text-align:right}
+.art-modal-content td{padding:9px 14px;border-bottom:1px solid var(--bdr)}
+.art-modal-content tr:nth-child(even) td{background:var(--cream)}
+
+/* LINKS */
+.links-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.lnk{background:#fff;border-radius:16px;padding:20px 22px;border:1px solid var(--bdr);display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;transition:.25s}
+.lnk:hover{border-color:var(--teal);box-shadow:0 8px 22px var(--shd);transform:translateX(-4px)}
+.lnk-ic{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:25px;flex-shrink:0}
+.lnk-ic.teal{background:rgba(42,184,168,.12)}
+.lnk-ic.gold{background:rgba(201,168,76,.12)}
+.lnk-ic.blue{background:rgba(66,135,245,.1)}
+.lnk-ic.green{background:rgba(52,168,83,.1)}
+.lnk-txt strong{display:block;font-weight:700;color:var(--teal-d);font-size:14px;margin-bottom:3px}
+.lnk-txt span{font-size:12px;color:var(--txt-s)}
+.lnk-arrow{margin-right:auto;color:var(--txt-s);font-size:18px}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,var(--teal-d) 0%,#1a6b62 100%)}
+#contact .sl{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9)}
+#contact h2{color:#fff}
+#contact .sd{color:rgba(255,255,255,.7)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.ci{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:15px;padding:18px 22px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(8px);text-decoration:none;transition:.2s}
+.ci:hover{background:rgba(255,255,255,.18)}
+.ci-ic{font-size:26px;flex-shrink:0}
+.ci strong{display:block;color:#fff;font-size:13px;margin-bottom:2px}
+.ci span{color:rgba(255,255,255,.7);font-size:12px}
+.appt-box{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:28px;backdrop-filter:blur(8px)}
+.appt-box h3{color:#fff;font-size:18px;font-weight:700;margin-bottom:8px}
+.appt-box p{color:rgba(255,255,255,.75);font-size:14px;margin-bottom:22px;line-height:1.7}
+.appt-tabs{display:flex;gap:10px;margin-bottom:24px}
+.appt-tab{flex:1;padding:12px;border-radius:12px;border:2px solid rgba(255,255,255,.25);background:transparent;color:rgba(255,255,255,.8);font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+.appt-tab.active{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.6);color:#fff}
+.appt-content{display:none}
+.appt-content.active{display:block}
+.appt-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px;background:var(--gold);color:#fff;font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:700;border:none;border-radius:12px;cursor:pointer;text-decoration:none;transition:.25s;margin-bottom:14px}
+.appt-btn:hover{background:var(--gold-l);transform:translateY(-1px)}
+.appt-phone{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:14px;color:#fff;font-size:15px;font-weight:700;text-decoration:none;transition:.2s}
+.appt-phone:hover{background:rgba(255,255,255,.2)}
+.appt-note{font-size:12px;color:rgba(255,255,255,.6);text-align:center;margin-top:10px}
+
+/* FLOAT BUTTONS */
+.float-btns{position:fixed;bottom:28px;left:28px;z-index:500;display:flex;flex-direction:column;gap:10px}
+.float-btn{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;transition:.3s;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.float-btn:hover{transform:scale(1.12)}
+.fb-wa{background:#25d366;animation:pulse-g 2.5s ease-in-out infinite}
+.fb-bale{background:#7B4FFF}
+.fb-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+@keyframes pulse-g{0%,100%{box-shadow:0 4px 16px rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.7)}}
+
+footer{background:var(--teal-d);color:rgba(255,255,255,.6);text-align:center;padding:26px 40px;font-size:13px}
+footer strong{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-in,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .svc-panel.active{grid-template-columns:1fr 1fr}
+  .dis-grid{grid-template-columns:1fr}
+  .art-grid{grid-template-columns:1fr}
+  .links-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-photo-wrap{margin-bottom:30px}
+}
+@media(max-width:600px){
+  .svc-panel.active{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column;gap:14px}
+  .sw{padding:50px 18px}
+  nav{padding:0 18px}
+  .appt-tabs{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">
+      <img src="images/logo.jpg" alt="لوگو" onerror="this.parentElement.innerHTML='🏥'">
+    </div>
+    <div class="nav-logo-txt">
+      <span>کلینیک آنلاین دکتر بازی‌پور</span>
+      <span>کاردرمانی و حرکات اصلاحی</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#home">خانه</a>
+    <a href="#about">درباره من</a>
+    <a href="#services">خدمات</a>
+    <a href="#diseases">بیماری‌ها</a>
+    <a href="#articles">مقالات</a>
+    <a href="#links">لینک‌های مفید</a>
+    <a href="#contact" class="nav-btn">📞 ارتباط با ما</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="closeMenu()">خانه</a>
+  <a href="#about" onclick="closeMenu()">درباره من</a>
+  <a href="#services" onclick="closeMenu()">خدمات</a>
+  <a href="#diseases" onclick="closeMenu()">بیماری‌ها</a>
+  <a href="#articles" onclick="closeMenu()">مقالات</a>
+  <a href="#links" onclick="closeMenu()">لینک‌های مفید</a>
+  <a href="#contact" onclick="closeMenu()">ارتباط با ما</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-in">
+    <div>
+      <div class="hero-badge">✦ کلینیک آنلاین دکتر پروانه بازی‌پور</div>
+      <h1>توانبخشی،<br>کاردرمانی و<br><span>حرکات اصلاحی</span></h1>
+      <div class="hero-sub">کاردرمان‌گر و دکتری تخصصی حرکات اصلاحی</div>
+      <p class="hero-desc">با بیش از ۱۰ سال تجربه بالینی، تحقیقاتی و تدریس دانشگاهی در خدمت سلامت شما هستم.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">📅 رزرو نوبت</a>
+        <a href="#about" class="btn-outline">👩‍⚕️ درباره من</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">+۱۰</span><span class="stat-label">سال تجربه بالینی</span></div>
+        <div class="stat"><span class="stat-num">از ۱۳۹۲</span><span class="stat-label">فعالیت کلینیکی</span></div>
+        <div class="stat"><span class="stat-num">آنلاین</span><span class="stat-label">سراسر ایران</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-services">
+          <div class="hs-item">
+            <div class="hs-icon">🧠</div>
+            <div class="hs-text">
+              <strong>توانبخشی نورولوژیک</strong>
+              <span>سکته مغزی، پارکینسون، ام‌اس و ضربه مغزی</span>
+            </div>
+          </div>
+          <div class="hs-item">
+            <div class="hs-icon">〰️</div>
+            <div class="hs-text">
+              <strong>اسکولیوز و کایفوز</strong>
+              <span>ارزیابی و اصلاح ناهنجاری‌های ستون فقرات</span>
+            </div>
+          </div>
+          <div class="hs-item">
+            <div class="hs-icon">🦶</div>
+            <div class="hs-text">
+              <strong>ناهنجاری‌های پا و اندام</strong>
+              <span>صافی کف پا، زانوی پرانتزی و ضربدری</span>
+            </div>
+          </div>
+          <div class="hs-item">
+            <div class="hs-icon">🩺</div>
+            <div class="hs-text">
+              <strong>کاردرمانی و حرکات اصلاحی</strong>
+              <span>ارزیابی بیومکانیک و طراحی برنامه اختصاصی</span>
+            </div>
+          </div>
+          <div class="hs-item">
+            <div class="hs-icon">💻</div>
+            <div class="hs-text">
+              <strong>ویزیت آنلاین سراسر ایران</strong>
+              <span>مشاوره و درمان از راه دور از طریق واتساپ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="alt-bg">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">درباره من</div>
+      <h2>دکتر پروانه بازی‌پور</h2>
+      <p class="sd">کاردرمان‌گر و دکتری تخصصی حرکات اصلاحی با بیش از یک دهه تجربه بالینی</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo">
+          <img src="doctor.jpeg" alt="دکتر پروانه بازی‌پور" onerror="this.style.display='none';document.getElementById('photoFallback').style.display='flex'">
+          <div class="about-photo-fallback" style="display:none" id="photoFallback">👩‍⚕️</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="sl">معرفی</div>
+        <h2>درباره من</h2>
+        <div class="hero-sub-text">کاردرمان‌گر | دکتری تخصصی حرکات اصلاحی</div>
+        <div class="about-bio">
+          <p>کاردرمان‌گر و دکترای تخصصی حرکات اصلاحی هستم. از سال ۱۳۹۲ مشغول به کار بالینی در زمینه کاردرمانی بیماران نورولوژیک بزرگسال (سکته و ضربه مغزی، پارکینسون، ام‌اس و ...) و همچنین اصلاح دفورمیتی‌های ستون فقرات و پا (اسکولیوز، کایفوز، صافی کف پا و ...) بوده‌ام.</p>
+          <p>رویکرد درمانی من مبتنی بر ارزیابی دقیق، شناسایی علت اصلی مشکل و طراحی برنامه درمانی کاملاً شخصی‌سازی‌شده برای هر بیمار است.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+          <div style="background:rgba(42,184,168,.07);border-radius:14px;padding:16px 18px;border:1px solid var(--bdr)">
+            <div style="font-size:22px;margin-bottom:8px">🧠</div>
+            <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:4px">بیماران نورولوژیک</div>
+            <div style="font-size:12px;color:var(--txt-s)">سکته مغزی، ام‌اس، پارکینسون</div>
+          </div>
+          <div style="background:rgba(42,184,168,.07);border-radius:14px;padding:16px 18px;border:1px solid var(--bdr)">
+            <div style="font-size:22px;margin-bottom:8px">〰️</div>
+            <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:4px">حرکات اصلاحی</div>
+            <div style="font-size:12px;color:var(--txt-s)">اسکولیوز، کایفوز، ناهنجاری‌های پا</div>
+          </div>
+          <div style="background:rgba(42,184,168,.07);border-radius:14px;padding:16px 18px;border:1px solid var(--bdr)">
+            <div style="font-size:22px;margin-bottom:8px">🩺</div>
+            <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:4px">کاردرمانی تخصصی</div>
+            <div style="font-size:12px;color:var(--txt-s)">ارزیابی و درمان عملکردی</div>
+          </div>
+          <div style="background:rgba(42,184,168,.07);border-radius:14px;padding:16px 18px;border:1px solid var(--bdr)">
+            <div style="font-size:22px;margin-bottom:8px">💻</div>
+            <div style="font-size:13px;font-weight:700;color:var(--teal-d);margin-bottom:4px">ویزیت آنلاین</div>
+            <div style="font-size:12px;color:var(--txt-s)">مشاوره و درمان از راه دور</div>
+          </div>
+        </div>
+        <div style="margin-top:22px;text-align:center">
+          <a href="#contact" class="btn-primary" style="display:inline-flex">📅 رزرو نوبت</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="alt-bg" style="background:var(--cream)">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">خدمات</div>
+      <h2>خدمات تخصصی</h2>
+      <p class="sd">ارائه خدمات به‌صورت حضوری، آنلاین و با استفاده از سیستم ریهاپ</p>
+    </div>
+    <div class="svc-tabs">
+      <button class="svc-tab active" onclick="showSvcTab('inperson',this)">🏥 ویزیت حضوری</button>
+      <button class="svc-tab" onclick="showSvcTab('online',this)">💻 ویزیت آنلاین</button>
+      <button class="svc-tab" onclick="showSvcTab('rehapp',this)">📱 سیستم ریهاپ</button>
+    </div>
+
+    <!-- حضوری -->
+    <div class="svc-panel active" id="inperson">
+      <div class="svc reveal">
+        <div class="svc-ic">🧠</div>
+        <h3>کاردرمانی بیماران نورولوژیک</h3>
+        <p>ارزیابی و درمان تخصصی بیماران سکته مغزی، ضربه مغزی، ام‌اس، پارکینسون و سایر اختلالات عصبی با هدف بازگرداندن استقلال در فعالیت‌های روزمره.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">🦴</div>
+        <h3>حرکات اصلاحی و اصلاح پاسچر</h3>
+        <p>ارزیابی دقیق وضعیت بدن و طراحی برنامه اصلاحی اختصاصی برای اسکولیوز، کایفوز، لوردوز، سر به جلو و سایر ناهنجاری‌های وضعیتی.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">🩺</div>
+        <h3>درمان دردهای اسکلتی-عضلانی</h3>
+        <p>شناسایی علت اصلی دردهای کمر، گردن، شانه و زانو و درمان با ترکیبی از تمرین درمانی، اصلاح الگوی حرکتی و آموزش سبک زندگی صحیح.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">🔍</div>
+        <h3>ارزیابی بیومکانیک و حرکت</h3>
+        <p>بررسی جامع پاسچر، راه رفتن، تعادل و الگوهای حرکتی برای شناسایی عوامل مستعدکننده آسیب، ویژه ورزشکاران و افراد دارای دردهای مکرر.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">💼</div>
+        <h3>ارگونومی و اصلاح سبک زندگی</h3>
+        <p>بررسی فعالیت‌های روزمره و محیط کار و ارائه راهکارهای عملی برای کاهش فشار بر ستون فقرات و مفاصل، مناسب برای کارمندان، دانشجویان و مشاغل نشسته.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">🧩</div>
+        <h3>کاردرمانی عملکردی</h3>
+        <p>طراحی برنامه درمانی شخصی‌سازی‌شده بر اساس نیازهای عملکردی هر فرد، با تمرکز بر بازگشت به کار، زندگی مستقل و فعالیت‌های اجتماعی.</p>
+      </div>
+    </div>
+
+    <!-- آنلاین -->
+    <div class="svc-panel" id="online">
+      <div class="svc reveal">
+        <div class="svc-ic">🖥️</div>
+        <h3>ویزیت و مشاوره آنلاین</h3>
+        <p>ارزیابی اولیه و مشاوره تخصصی از طریق ویدیو کال، مناسب برای افرادی که امکان حضور در کلینیک ندارند یا در شهرهای دیگر ساکن هستند.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">📋</div>
+        <h3>طراحی برنامه تمرینی آنلاین</h3>
+        <p>پس از ارزیابی آنلاین، برنامه تمرینی اختصاصی متناسب با سن، تشخیص، میزان درد و امکانات منزل طراحی شده و در جلسات بعدی به‌روزرسانی می‌شود.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-ic">📱</div>
+        <h3>پیگیری و پشتیبانی آنلاین</h3>
+        <p>بیماران درمان‌شده می‌توانند از طریق واتساپ و بله به‌صورت آنلاین پیگیری شوند و سوالات درمانی خود را مطرح کنند.</p>
+      </div>
+    </div>
+
+    <!-- ریهاپ -->
+    <div class="svc-panel" id="rehapp">
+      <div class="svc reveal" style="grid-column:1/-1;max-width:700px;margin:0 auto">
+        <div class="svc-ic">🤖</div>
+        <h3>سیستم هوشمند ریهاپ (Rehapp)</h3>
+        <p style="margin-bottom:14px">ریهاپ یک پلتفرم تخصصی توانبخشی است که امکان تجویز، پیگیری و ارزیابی تمرینات درمانی را به‌صورت دیجیتال فراهم می‌کند.</p>
+        <p>با استفاده از این سیستم، بیمار برنامه تمرینی خود را با تصویر و ویدیو دریافت کرده و درمانگر به‌صورت آنلاین پیشرفت او را رصد می‌کند. این روش همکاری حضوری و آنلاین را به بهترین شکل ترکیب می‌کند.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISEASES -->
+<section id="diseases">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">حوزه‌های درمانی</div>
+      <h2>بیماری‌ها و اختلالات قابل درمان</h2>
+      <p class="sd">مشکل خود را پیدا کنید — رویکرد درمانی مبتنی بر شواهد علمی برای هر وضعیت</p>
+    </div>
+    <div class="dis-grid reveal">
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">🧠</div>
+          <h3>بیماری‌های نورولوژیک</h3>
+        </div>
+        <p>توانبخشی و کاردرمانی بیماران با اختلالات عصبی با هدف بازگرداندن استقلال عملکردی و بهبود کیفیت زندگی.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">سکته مغزی</span>
+          <span class="dis-tag">ضربه مغزی</span>
+          <span class="dis-tag">پارکینسون</span>
+          <span class="dis-tag">ام اس</span>
+          <span class="dis-tag">آسیب نخاعی</span>
+          <span class="dis-tag">فلج مغزی</span>
+        </div>
+      </div>
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">🔵</div>
+          <h3>کایفوز (قوز پشت)</h3>
+        </div>
+        <p>کایفوز یا قوز ستون فقرات پشتی با ارزیابی دقیق و طراحی برنامه اصلاحی اختصاصی قابل درمان و کنترل است. هر چه زودتر مداخله صورت گیرد، نتیجه بهتر است.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">کایفوز وضعیتی</span>
+          <span class="dis-tag">کایفوز شومان</span>
+          <span class="dis-tag">قوز سالمندی</span>
+        </div>
+      </div>
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">〰️</div>
+          <h3>اسکولیوز (انحراف جانبی)</h3>
+        </div>
+        <p>اسکولیوز انحراف جانبی ستون فقرات است که در کودکان و نوجوانان شایع‌تر است. با ارزیابی زودهنگام و تمرینات اصلاحی هدفمند (روش شروث و سایر پروتکل‌ها) می‌توان از پیشرفت آن جلوگیری کرد.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">اسکولیوز ایدیوپاتیک</span>
+          <span class="dis-tag">اسکولیوز نوجوانان</span>
+          <span class="dis-tag">روش شروث</span>
+        </div>
+      </div>
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">🦶</div>
+          <h3>ناهنجاری‌های پا و اندام تحتانی</h3>
+        </div>
+        <p>صافی کف پا، زانوی پرانتزی، زانوی ضربدری و سایر ناهنجاری‌های اندام تحتانی با تمرینات اصلاحی، کفی طبی و آموزش الگوی حرکتی صحیح قابل درمان هستند.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">صافی کف پا</span>
+          <span class="dis-tag">زانوی پرانتزی</span>
+          <span class="dis-tag">زانوی ضربدری</span>
+          <span class="dis-tag">پای پرنده</span>
+        </div>
+      </div>
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">🪑</div>
+          <h3>ناهنجاری‌های وضعیتی</h3>
+        </div>
+        <p>لوردوز بیش از حد، سر به جلو، شانه‌های گرد و صافی کمر مشکلاتی هستند که اغلب ناشی از سبک زندگی نشسته و نامناسب‌اند و با اصلاح پاسچر و تمرین درمانی برطرف می‌شوند.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">لوردوز</span>
+          <span class="dis-tag">سر به جلو</span>
+          <span class="dis-tag">شانه گرد</span>
+          <span class="dis-tag">صافی کمر</span>
+        </div>
+      </div>
+      <div class="dis-card">
+        <div class="dis-header">
+          <div class="dis-ic">😣</div>
+          <h3>دردهای اسکلتی-عضلانی</h3>
+        </div>
+        <p>کمردرد، گردن‌درد، درد شانه و دردهای مزمن ناشی از وضعیت بدنی نامناسب با شناسایی علت اصلی و درمان هدفمند، بدون نیاز به جراحی قابل رفع هستند.</p>
+        <div class="dis-tags">
+          <span class="dis-tag">کمردرد</span>
+          <span class="dis-tag">گردن‌درد</span>
+          <span class="dis-tag">درد شانه</span>
+          <span class="dis-tag">دردهای مزمن</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="alt-bg">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">مقالات</div>
+      <h2>آخرین مطالب آموزشی</h2>
+      <p class="sd">مقالات علمی و کاربردی منتشرشده در اینستاگرام — برای مطالعه کامل کلیک کنید</p>
+    </div>
+    <div class="art-grid reveal">
+
+      <!-- مقاله ۱: زمان ورزش -->
+      <div class="art-card">
+        <div class="art-img gold" style="font-size:72px">⏰
+          <div class="art-ig-badge">📸 اینستاگرام</div>
+        </div>
+        <div class="art-body">
+          <span class="art-cat">فیزیولوژی ورزش</span>
+          <h3>بهترین زمان برای ورزش کردن در روز؛ از نگاه علم</h3>
+          <p>صبح، ظهر، عصر یا شب؟ هر بازه زمانی مزایا و معایب خاص خودش را دارد. بر اساس تحقیقات علمی، پاسخ به هدف شما بستگی دارد...</p>
+          <div class="art-footer">
+            <span class="art-date">🗓 منتشرشده در اینستاگرام</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="read-more-btn" onclick="openArticle(0)" style="background:rgba(42,184,168,.1);color:var(--teal);padding:7px 14px;border-radius:100px;border:none;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-size:12px;font-weight:600">ادامه مطلب ←</button>
+              <a href="https://www.instagram.com/p/DMTNI8DpQ10/?igsh=MWh4bWlwdDIyaXM4cw==" target="_blank" class="art-ig-link">📸 اینستاگرام</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- مقاله ۲: ریتم شبانه‌روزی -->
+      <div class="art-card">
+        <div class="art-img green" style="font-size:72px">🌅
+          <div class="art-ig-badge">📸 اینستاگرام</div>
+        </div>
+        <div class="art-body">
+          <span class="art-cat">سلامت و سبک زندگی</span>
+          <h3>ریتم شبانه‌روزی بدن و تأثیر آن بر عملکرد جسمانی</h3>
+          <p>ساعت بیولوژیک بدن (Circadian Rhythm) تعیین می‌کند در چه ساعاتی عضلات قوی‌تر، تعادل بهتر و ذهن تیزتر هستند. آشنایی با این ریتم می‌تواند تمرینات شما را متحول کند...</p>
+          <div class="art-footer">
+            <span class="art-date">🗓 منتشرشده در اینستاگرام</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="read-more-btn" onclick="openArticle(1)" style="background:rgba(42,184,168,.1);color:var(--teal);padding:7px 14px;border-radius:100px;border:none;cursor:pointer;font-family:'Vazirmatn',sans-serif;font-size:12px;font-weight:600">ادامه مطلب ←</button>
+              <a href="https://www.instagram.com/p/C7W8VLeOP08/?igsh=MWlnZTB1c3Nqczd2cw==" target="_blank" class="art-ig-link">📸 اینستاگرام</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE MODAL -->
+<div class="art-modal-overlay" id="artModal" onclick="closeArticle(event)">
+  <div class="art-modal" id="artModalContent"></div>
+</div>
+
+<!-- LINKS -->
+<section id="links">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">منابع</div>
+      <h2>لینک‌های مفید</h2>
+      <p class="sd">سایت‌های معتبر در حوزه کاردرمانی، حرکات اصلاحی و سلامت</p>
+    </div>
+    <div class="links-grid reveal">
+      <a href="https://irimc.org" target="_blank" class="lnk"><div class="lnk-ic teal">🏛️</div><div class="lnk-txt"><strong>سازمان نظام پزشکی ایران</strong><span>استعلام پروانه فعالیت متخصصان</span></div><div class="lnk-arrow">←</div></a>
+      <a href="https://www.wfot.org" target="_blank" class="lnk"><div class="lnk-ic gold">🌍</div><div class="lnk-txt"><strong>فدراسیون جهانی کاردرمانی (WFOT)</strong><span>استانداردهای بین‌المللی کاردرمانی</span></div><div class="lnk-arrow">←</div></a>
+      <a href="https://www.physio-pedia.com" target="_blank" class="lnk"><div class="lnk-ic blue">📖</div><div class="lnk-txt"><strong>Physiopedia</strong><span>دانشنامه تخصصی توانبخشی و حرکات</span></div><div class="lnk-arrow">←</div></a>
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed" target="_blank" class="lnk"><div class="lnk-ic green">🔬</div><div class="lnk-txt"><strong>PubMed — مقالات علمی پزشکی</strong><span>دسترسی به تحقیقات معتبر دنیا</span></div><div class="lnk-arrow">←</div></a>
+      <a href="https://www.aota.org" target="_blank" class="lnk"><div class="lnk-ic teal">🏥</div><div class="lnk-txt"><strong>انجمن کاردرمانی آمریکا (AOTA)</strong><span>منابع و دستورالعمل‌های کاردرمانی</span></div><div class="lnk-arrow">←</div></a>
+      <a href="https://www.who.int/health-topics/rehabilitation" target="_blank" class="lnk"><div class="lnk-ic gold">🌐</div><div class="lnk-txt"><strong>سازمان بهداشت جهانی — توانبخشی</strong><span>راهنماهای جهانی توانبخشی</span></div><div class="lnk-arrow">←</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sw">
+    <div class="sh reveal">
+      <div class="sl">ارتباط با ما</div>
+      <h2>تماس و رزرو نوبت</h2>
+      <p class="sd">از طریق راه‌های ارتباطی زیر با ما در تماس باشید</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a href="tel:09029805575" class="ci">
+          <div class="ci-ic">📞</div>
+          <div><strong>تلفن تماس</strong><span>۰۹۰۲۹۸۰۵۵۷۵</span></div>
+        </a>
+        <a href="https://wa.me/989029805575" target="_blank" class="ci">
+          <div class="ci-ic">💬</div>
+          <div><strong>واتساپ</strong><span>۰۹۰۲۹۸۰۵۵۷۵ — پیام دهید</span></div>
+        </a>
+        <a href="https://ble.ir/09029805575" target="_blank" class="ci">
+          <div class="ci-ic">🔵</div>
+          <div><strong>بله</strong><span>۰۹۰۲۹۸۰۵۵۷۵ — در بله پیام دهید</span></div>
+        </a>
+        <a href="https://www.instagram.com/p/BnrPdEYhG51/" target="_blank" class="ci">
+          <div class="ci-ic">📸</div>
+          <div><strong>اینستاگرام</strong><span>دنبال کنید برای مطالب آموزشی</span></div>
+        </a>
+        <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:16px 20px;font-size:13px;color:rgba(255,255,255,.8)">
+          📍 <strong style="color:#fff">شیراز، استان فارس</strong><br>
+          <span style="color:rgba(255,255,255,.65);font-size:12px;margin-top:4px;display:block">برای آدرس دقیق از طریق واتساپ یا بله تماس بگیرید</span>
+        </div>
+      </div>
+      <div class="appt-box reveal">
+        <h3>رزرو نوبت</h3>
+        <p>نوع ویزیت مورد نظر خود را انتخاب کنید:</p>
+        <div class="appt-tabs">
+          <button class="appt-tab active" onclick="showApptTab('appt-inperson',this)">🏥 نوبت حضوری</button>
+          <button class="appt-tab" onclick="showApptTab('appt-online',this)">💻 نوبت آنلاین</button>
+        </div>
+        <div class="appt-content active" id="appt-inperson">
+          <p style="color:rgba(255,255,255,.8);font-size:14px;margin-bottom:16px;line-height:1.7">برای رزرو نوبت حضوری از طریق واتساپ یا بله پیام دهید:</p>
+          <a href="https://wa.me/989029805575?text=سلام، میخواهم نوبت حضوری رزرو کنم" target="_blank" class="appt-btn" style="background:rgba(37,211,102,.9);margin-bottom:10px">💬 رزرو از طریق واتساپ</a>
+          <a href="https://ble.ir/09029805575" target="_blank" class="appt-btn" style="background:rgba(123,79,255,.85)">🔵 رزرو از طریق بله</a>
+          <div class="appt-note">پس از پیام، زمان مناسب برای مراجعه حضوری تنظیم خواهد شد.</div>
+        </div>
+        <div class="appt-content" id="appt-online">
+          <p style="color:rgba(255,255,255,.8);font-size:14px;margin-bottom:16px;line-height:1.7">برای رزرو ویزیت آنلاین از طریق واتساپ یا بله پیام دهید:</p>
+          <a href="https://wa.me/989029805575?text=سلام، میخواهم نوبت آنلاین رزرو کنم" target="_blank" class="appt-btn" style="background:rgba(37,211,102,.9);margin-bottom:10px">💬 رزرو از طریق واتساپ</a>
+          <a href="https://ble.ir/09029805575" target="_blank" class="appt-btn" style="background:rgba(123,79,255,.85)">🔵 رزرو از طریق بله</a>
+          <div class="appt-note">ویزیت آنلاین از طریق ویدیو کال انجام می‌شود — ساعت هماهنگ خواهد شد.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- شناور -->
+<div class="float-btns">
+  <a href="https://wa.me/989029805575" target="_blank" class="float-btn fb-wa" title="واتساپ">💬</a>
+  <a href="https://ble.ir/09029805575" target="_blank" class="float-btn fb-bale" title="بله">🔵</a>
+  <a href="https://www.instagram.com/p/BnrPdEYhG51/" target="_blank" class="float-btn fb-ig" title="اینستاگرام">📸</a>
+</div>
+
+<footer>
+  <p>© ۱۴۰۴ — کلینیک آنلاین <strong>دکتر پروانه بازی‌پور</strong> | کاردرمانی و حرکات اصلاحی</p>
+  <p style="margin-top:7px;font-size:12px">تمامی حقوق محفوظ است</p>
+</footer>
+
+<script>
+// ───── DATA مقالات ─────
+const articles = [
+  {
+    icon:'⏰', cat:'فیزیولوژی ورزش',
+    title:'بهترین زمان برای ورزش کردن در روز؛ از نگاه علم',
+    igLink:'https://www.instagram.com/p/DMTNI8DpQ10/?igsh=MWh4bWlwdDIyaXM4cw==',
+    sections:[
+      {h:'مقدمه', p:'موضوع «زمان مناسب برای ورزش کردن» یکی از پرجست‌وجوترین مباحث در حوزه سلامت و فیتنس است. اما واقعیت چیست؟ علم امروز بر اساس ریتم شبانه‌روزی بدن (Circadian Rhythm)، چند بازه زمانی خاص را پیشنهاد می‌دهد.'},
+      {h:'۱. ورزش صبح (۶ تا ۱۰ صبح)', ul:['چربی‌سوزی بیشتر — بدن هنوز در حالت ناشتاست','تنظیم ساعت بیولوژیک بدن','تأثیر مثبت روی خلق‌وخو و انرژی روز','افزایش تعهد به ورزش قبل از شروع روز کاری','⚠️ دمای بدن پایین‌تره — احتمال آسیب‌دیدگی بیشتر']},
+      {h:'۲. ورزش ظهر (۱۱ صبح تا ۲ بعدازظهر)', ul:['هماهنگی عصبی-عضلانی در وضعیت خوبی است','دمای بدن بالاتر — عملکرد بهتر','سطح کورتیزول کاهش یافته — اضطراب کمتر']},
+      {h:'۳. ورزش عصر (۴ تا ۷ عصر)', ul:['بیشترین دمای بدن — عضلات گرم‌تر، عملکرد بهتر','بیشترین قدرت، سرعت و استقامت','بهترین زمان برای عضله‌سازی و تمرینات سنگین']},
+      {h:'۴. ورزش شب (بعد از ۸ شب)', ul:['کاهش استرس‌های روزانه','مناسب برای تمرینات سبک یا یوگا','⚠️ ورزش سنگین ممکن است باعث اختلال خواب شود']},
+      {h:'جمع‌بندی بر اساس هدف', p:'برای کاهش وزن: صبح با تمرین هوازی ✅ | برای عضله‌سازی: عصر ✅ | برای آرامش: شب با ورزش سبک ✅'},
+      {highlight:'مهم‌تر از زمان دقیق، پیوستگی و تعهد به ورزش است. بدن به ریتم روزانه عادت می‌کند — اگر همیشه عصر تمرین کنی، به مرور عملکردت در آن زمان بهتر می‌شود.'},
+      {h:'منابع علمی', ul:['Chtourou & Souissi, 2012 — Journal of Strength & Conditioning Research','Willis et al., 2012 — Obesity','Stutz et al., 2019 — Sports Medicine','Hill et al., 1992 — Circadian rhythm and exercise performance']}
+    ]
+  },
+  {
+    icon:'🌅', cat:'سلامت و سبک زندگی',
+    title:'ریتم شبانه‌روزی بدن و تأثیر آن بر عملکرد جسمانی',
+    igLink:'https://www.instagram.com/p/C7W8VLeOP08/?igsh=MWlnZTB1c3Nqczd2cw==',
+    sections:[
+      {h:'ریتم شبانه‌روزی چیست؟', p:'ساعت بیولوژیک بدن (Circadian Rhythm) یک چرخه طبیعی ۲۴ ساعته است که تقریباً تمام فرآیندهای فیزیولوژیک بدن — از دمای مرکزی و ترشح هورمون‌ها تا قدرت عضلانی و هوشیاری — را کنترل می‌کند.'},
+      {h:'چگونه بر عملکرد جسمانی تأثیر می‌گذارد؟', ul:['دمای بدن: در اوایل صبح پایین‌ترین، در اواخر بعدازظهر بالاترین است','کورتیزول: صبح‌ها بیشترین است و به بیداری و انرژی کمک می‌کند','ملاتونین: با تاریکی ترشح می‌شود و بدن را برای خواب آماده می‌کند','قدرت عضلانی: حدود ساعت ۳ تا ۶ عصر به اوج می‌رسد']},
+      {h:'آیا می‌توان ریتم بدن را تغییر داد؟', p:'بله! بدن قابلیت «تنظیم» دارد. اگر به طور منظم در ساعت خاصی ورزش کنید، بدن به مرور زمان در آن ساعت آمادگی بیشتری خواهد داشت. این پدیده را «اثر مکان‌پذیری ریتم» می‌نامند.'},
+      {h:'توصیه عملی', ul:['یک زمان ثابت برای ورزش انتخاب کنید و به آن پایبند باشید','قبل از خواب از نور آبی صفحه‌های دیجیتال دوری کنید','ساعت خواب و بیداری ثابت داشته باشید']},
+      {highlight:'علم روشن می‌گوید: «ثبات» مهم‌تر از «زمان دقیق» است. بهترین زمان ورزش، زمانی است که بتوانید به آن پایبند باشید.'},
+      {h:'منابع', ul:['Refinetti, R. (2016) — Circadian Physiology','Chtourou & Souissi, 2012 — JSCR']}
+    ]
+  }
+];
+
+// ───── ARTICLE MODAL ─────
+function openArticle(i){
+  const a=articles[i]; if(!a) return;
+  const sectHtml=a.sections.map(s=>{
+    if(s.highlight) return `<div class="highlight">${s.highlight}</div>`;
+    let html=s.h?`<h4>${s.h}</h4>`:'';
+    if(s.p) html+=`<p>${s.p}</p>`;
+    if(s.ul) html+=`<ul>${s.ul.map(li=>`<li>${li}</li>`).join('')}</ul>`;
+    return html;
+  }).join('');
+  document.getElementById('artModalContent').innerHTML=`
+    <div class="art-modal-header">
+      <button class="close-btn" onclick="closeArticleDirect()">✕</button>
+      <span class="art-cat">${a.cat}</span>
+      <h3>${a.title}</h3>
+      <div class="art-date">منتشرشده در اینستاگرام دکتر بازی‌پور</div>
+      <a href="${a.igLink}" target="_blank" class="ig-link-btn">📸 مشاهده پست اینستاگرام</a>
+    </div>
+    <div class="art-modal-content">${sectHtml}</div>`;
+  document.getElementById('artModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeArticle(e){if(e.target===document.getElementById('artModal'))closeArticleDirect()}
+function closeArticleDirect(){document.getElementById('artModal').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticleDirect()});
+
+// ───── SERVICE TABS ─────
+function showSvcTab(id,btn){
+  document.querySelectorAll('.svc-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.svc-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ───── APPOINTMENT TABS ─────
+function showApptTab(id,btn){
+  document.querySelectorAll('.appt-content').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.appt-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ───── NAV ─────
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
+    closeMenu();
+  });
+});
+
+// ───── SCROLL REVEAL ─────
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*70)});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ───── PHOTO FALLBACK ─────
+document.querySelector('.about-photo img')?.addEventListener('error',function(){
+  this.style.display='none';
+  document.getElementById('photoFallback').style.display='flex';
+});
+</script>
+</body>
+</html>
